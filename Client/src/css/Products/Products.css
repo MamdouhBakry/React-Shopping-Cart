@@ -1,0 +1,28 @@
+.product-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.product-wrapper .product-item {
+  width: 23%;
+}
+.product-wrapper .product-item img {
+  width: 100%;
+  display: block;
+  padding: 2px;
+  border: 1px solid #c0c0c0;
+}
+.product-wrapper .product-item .product-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.product-wrapper .product-item button {
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  background-color: #2a5ea5;
+  color: #fff;
+  padding: 5px;
+  width: 100%;
+}

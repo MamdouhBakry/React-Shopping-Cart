@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#root{
+    height:100vh;
+}
+.layout
+{
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+    height: 100%;
+    grid-template-rows: 50px 1fr 50px;
+}
+
+main{
+    grid-area: main;
+}
+footer{
+    background-color: #2a5ea5;
+    color: #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

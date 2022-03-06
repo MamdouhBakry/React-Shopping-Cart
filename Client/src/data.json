@@ -1,0 +1,46 @@
+[
+    {
+        "id": "id1",
+        "title": "Product 1",
+        "imageUrl": "/images/shoes.jpg",
+        "desc": "this is product 1",
+        "price": 30,
+        "size": [
+            "S",
+            "M"
+        ]
+    },
+    {
+        "id": "id2",
+        "title": "Product 2",
+        "imageUrl": "/images/camera.jpg",
+        "desc": "this is product 2",
+        "price": 30,
+        "size": [
+            "S",
+            "M"
+        ]
+    },
+    {
+        "id": "id3",
+        "title": "Product 3",
+        "imageUrl": "/images/airePods.jpg",
+        "desc": "this is product 3",
+        "price": 30,
+        "size": [
+            "S",
+            "M"
+        ]
+    },
+    {
+        "id": "id4",
+        "title": "Product 4",
+        "imageUrl": "/images/laptop.jpg",
+        "desc": "this is product 4",
+        "price": 30,
+        "size": [
+            "S",
+            "M"
+        ]
+    }
+]

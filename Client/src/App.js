@@ -1,5 +1,6 @@
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import { words } from "./words";
 
 
 
@@ -8,7 +9,7 @@ function App() {
     <div className="layout">
       <Header />
       <main>
-        Conent
+        {words.content}
       </main>
       <Footer />
     </div>

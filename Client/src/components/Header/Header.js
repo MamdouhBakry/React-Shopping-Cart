@@ -1,10 +1,11 @@
 import React from 'react'
 import '../../css/Header/Header.css';
+import { words } from '../../words';
 export default function () {
     return (
         <>
             <header>
-                Shoping Cart
+                {words.headerTitle}
             </header>
         </>
     )

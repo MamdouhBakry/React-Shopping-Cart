@@ -26,3 +26,23 @@
   padding: 5px;
   width: 100%;
 }
+
+.product-info img {
+  display: block;
+  width: 40%;
+  margin: 20px auto;
+}
+.product-info p {
+  color: #2a5ea5;
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}

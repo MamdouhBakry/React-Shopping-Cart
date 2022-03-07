@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import data from "./data.json";
 import { useState } from "react";
 import Products from "./components/Products/Products";
+import Filter from "./components/Filter/Filter";
 
 
 
@@ -16,7 +17,7 @@ function App() {
       <main>
         <div className="wrapper">
           <Products products={products} />
-          <div className="filter-wrapper">Filter</div>
+          <Filter />
         </div>
       </main>
       <Footer />

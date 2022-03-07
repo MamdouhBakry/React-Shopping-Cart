@@ -5,7 +5,7 @@
         "imageUrl": "/images/shoes.jpg",
         "desc": "this is product 1",
         "price": 30,
-        "size": [
+        "sizes": [
             "S",
             "M"
         ]
@@ -15,10 +15,10 @@
         "title": "Product 2",
         "imageUrl": "/images/camera.jpg",
         "desc": "this is product 2",
-        "price": 30,
-        "size": [
-            "S",
-            "M"
+        "price": 45,
+        "sizes": [
+            "L",
+            "XL"
         ]
     },
     {
@@ -26,10 +26,11 @@
         "title": "Product 3",
         "imageUrl": "/images/airePods.jpg",
         "desc": "this is product 3",
-        "price": 30,
-        "size": [
+        "price": 25,
+        "sizes": [
             "S",
-            "M"
+            "M",
+            "L"
         ]
     },
     {
@@ -37,10 +38,11 @@
         "title": "Product 4",
         "imageUrl": "/images/laptop.jpg",
         "desc": "this is product 4",
-        "price": 30,
-        "size": [
-            "S",
-            "M"
+        "price": 50,
+        "sizes": [
+            "XS",
+            "M",
+            "S"
         ]
     }
 ]

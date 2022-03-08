@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "../../css/Products/Products.css";
 import ProductModal from './ProductModal';
+import Bounce from 'react-reveal/Bounce';
+
 export default function Products(props) {
     const [product, setProduct] = useState("");
     const [ind, setInd] = useState(0);
@@ -13,23 +15,25 @@ export default function Products(props) {
     }
     return (
         <>
-            <div className="product-wrapper">
-                {
-                    props.products.map((product, index) => (
-                        <div className="product-item" key={product.id}>
-                            <a onClick={() => openModal(product, index)} href='#'>
-                                <img src={props.images[index]} alt={product.title} />
-                            </a>
-                            <div className="product-desc">
-                                <p>{product.title}</p>
-                                <span>${product.price}</span>
+            <Bounce left cascade>
+                <div className="product-wrapper">
+                    {
+                        props.products.map((product, index) => (
+                            <div className="product-item" key={product.id}>
+                                <a onClick={() => openModal(product, index)} href='#'>
+                                    <img src={props.images[index]} alt={product.title} />
+                                </a>
+                                <div className="product-desc">
+                                    <p>{product.title}</p>
+                                    <span>${product.price}</span>
+                                </div>
+                                <button onClick={() => props.AddToCart(product)}>Add To Cart</button>
                             </div>
-                            <button onClick={() => props.AddToCart(product)}>Add To Cart</button>
-                        </div>
-                    ))
-                }
-                <ProductModal product={product} img={props.images[ind]} closeModal={closeModal} />
-            </div>
+                        ))
+                    }
+                    <ProductModal product={product} img={props.images[ind]} closeModal={closeModal} />
+                </div>
+            </Bounce>
         </>
     )
 }

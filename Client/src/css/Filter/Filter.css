@@ -1,7 +1,6 @@
 .filter-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
 }
 .filter-wrapper .container {
   margin: 30px 10px;

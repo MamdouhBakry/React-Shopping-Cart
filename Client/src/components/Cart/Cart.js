@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../../css/Cart/Cart.css";
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import Bounce from 'react-reveal/Bounce';
+
 export default function Cart(props) {
     const [showForm, setShowForm] = useState(false);
     const [value, setValue] = useState("");
@@ -19,23 +21,27 @@ export default function Cart(props) {
         <>
             <div className="cart-wrapper">
                 <div className="cart-title">{props.cartItems.length === 0 ? "Cart Is Empty" : `Ther is ${props.cartItems.length} In Cart`}</div>
-                <div className="cart-items">
-                    {
-                        props.cartItems.map((item, index) => (
-                            <div className="cart-item">
-                                <img src={props.images[index]} alt={item.title} />
-                                <div className="cart-info">
-                                    <div>
-                                        <p>{item.title}</p>
-                                        <p>{item.qty}</p>
-                                        <p>${item.price}</p>
+                <>
+                    <Bounce bottom cascade>
+                        <div className="cart-items">
+                            {
+                                props.cartItems.map((item, index) => (
+                                    <div className="cart-item">
+                                        <img src={props.images[index]} alt={item.title} />
+                                        <div className="cart-info">
+                                            <div>
+                                                <p>{item.title}</p>
+                                                <p>{item.qty}</p>
+                                                <p>${item.price}</p>
+                                            </div>
+                                            <button onClick={() => props.removeFromCart(item)}>Remove</button>
+                                        </div>
                                     </div>
-                                    <button onClick={() => props.removeFromCart(item)}>Remove</button>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
+                                ))
+                            }
+                        </div>
+                    </Bounce>
+                </>
                 {
                     props.cartItems.length !== 0 && <div className="cart-footer">
                         <div className="total">Total: {

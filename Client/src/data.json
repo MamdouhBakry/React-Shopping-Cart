@@ -5,7 +5,6 @@
         "imageUrl": "/images/shoes.jpg",
         "desc": "this is product 1",
         "price": 30,
-        "qty": 10,
         "sizes": [
             "S",
             "M"
@@ -17,7 +16,6 @@
         "imageUrl": "/images/camera.jpg",
         "desc": "this is product 2",
         "price": 45,
-        "qty": 50,
         "sizes": [
             "L",
             "XL"
@@ -29,7 +27,6 @@
         "imageUrl": "/images/airePods.jpg",
         "desc": "this is product 3",
         "price": 25,
-        "qty": 20,
         "sizes": [
             "S",
             "M",
@@ -42,7 +39,6 @@
         "imageUrl": "/images/laptop.jpg",
         "desc": "this is product 4",
         "price": 50,
-        "qty": 30,
         "sizes": [
             "XS",
             "M",

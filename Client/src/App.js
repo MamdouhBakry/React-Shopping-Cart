@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
 import Cart from "./components/Cart/Cart";
+import { Provider } from "react-redux";
 
 // Images
 import img1 from "./Images/airePods.jpg";
 import img2 from "./Images/camera.jpg";
 import img3 from "./Images/laptop.jpg";
 import img4 from "./Images/shoes.jpg";
+import store from "./store/store";
 
 
 function App() {
@@ -74,23 +76,25 @@ function App() {
     setCartItems(cartItemsClone.filter(p => p.id !== product.id));
   }
   return (
-    <div className="layout">
-      <Header />
-      <main>
-        <div className="wrapper">
-          <Products products={products} images={images} AddToCart={AddToCart} />
-          <Filter
-            productsNum={products.length}
-            size={size}
-            sort={sort}
-            handleFilterByOrder={handleFilterByOrder}
-            handleFilterBySize={handleFilterBySize}
-          />
-        </div>
-        <Cart cartItems={cartItems} removeFromCart={removeFromCart} images={images} />
-      </main>
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div className="layout">
+        <Header />
+        <main>
+          <div className="wrapper">
+            <Products products={products} images={images} AddToCart={AddToCart} />
+            <Filter
+              productsNum={products.length}
+              size={size}
+              sort={sort}
+              handleFilterByOrder={handleFilterByOrder}
+              handleFilterBySize={handleFilterBySize}
+            />
+          </div>
+          <Cart cartItems={cartItems} removeFromCart={removeFromCart} images={images} />
+        </main>
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 

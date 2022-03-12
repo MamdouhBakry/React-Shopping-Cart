@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../css/Products/Products.css";
 import ProductModal from './ProductModal';
 import Bounce from 'react-reveal/Bounce';
+import { connect } from "react-redux";
+import { fetchProduct } from '../../store/actions/products';
 
-export default function Products(props) {
+function Products(props) {
     const [product, setProduct] = useState("");
     const [ind, setInd] = useState(0);
+    console.log("products", props.products)
     const openModal = (product, index) => {
         setProduct(product);
         setInd(index);
@@ -13,23 +16,27 @@ export default function Products(props) {
     const closeModal = () => {
         setProduct(false);
     }
+    useEffect(() => {
+        props.fetchProduct();
+    }, [])
     return (
         <>
             <Bounce left cascade>
                 <div className="product-wrapper">
                     {
-                        props.products.map((product, index) => (
-                            <div className="product-item" key={product.id}>
-                                <a onClick={() => openModal(product, index)} href='#'>
-                                    <img src={props.images[index]} alt={product.title} />
-                                </a>
-                                <div className="product-desc">
-                                    <p>{product.title}</p>
-                                    <span>${product.price}</span>
+                        props.products && props.products.length ?
+                            props.products.map((product, index) => (
+                                <div className="product-item" key={product.id}>
+                                    <a onClick={() => openModal(product, index)} href='#'>
+                                        <img src={props.images[index]} alt={product.title} />
+                                    </a>
+                                    <div className="product-desc">
+                                        <p>{product.title}</p>
+                                        <span>${product.price}</span>
+                                    </div>
+                                    <button onClick={() => props.AddToCart(product)}>Add To Cart</button>
                                 </div>
-                                <button onClick={() => props.AddToCart(product)}>Add To Cart</button>
-                            </div>
-                        ))
+                            )) : "Loading..."
                     }
                     <ProductModal product={product} img={props.images[ind]} closeModal={closeModal} />
                 </div>
@@ -37,3 +44,9 @@ export default function Products(props) {
         </>
     )
 }
+
+export default connect((state) => {
+    return {
+        products: state.products.products
+    }
+}, { fetchProduct })(Products)

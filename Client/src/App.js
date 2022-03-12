@@ -23,9 +23,9 @@ function App() {
   const [size, setSize] = useState("");
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems])
+  // useEffect(() => {
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }, [cartItems])
 
   const handleFilterBySize = (e) => {
     setSize(e.target.value);

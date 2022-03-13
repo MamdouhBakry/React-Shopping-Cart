@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import "../../css/Cart/Cart.css";
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import Bounce from 'react-reveal/Bounce';
-import Modal from "react-modal";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
 import { createOrder, clearOrder } from "../../store/actions/order";
 import OrderModal from './OrderModal';
+import { words } from "../../words";
 
 function Cart(props) {
     const [showForm, setShowForm] = useState(false);
@@ -29,7 +29,7 @@ function Cart(props) {
     return (
         <>
             <div className="cart-wrapper">
-                <div className="cart-title">{props.cartItems.length === 0 ? "Cart Is Empty" : `Ther is ${props.cartItems.length} In Cart`}</div>
+                <div className="cart-title">{props.cartItems.length === 0 ? `${words.emptyCart}` : `${words.cartHeader} ${props.cartItems.length}`}</div>
                 {/* Modal */}
                 <OrderModal order={props.order} closeModal={closeModal} cartItems={props.cartItems} />
                 <>
@@ -41,11 +41,11 @@ function Cart(props) {
                                         <img src={props.images[index]} alt={item.title} />
                                         <div className="cart-info">
                                             <div>
-                                                <p>{item.title}</p>
-                                                <p>{item.qty}</p>
-                                                <p>${item.price}</p>
+                                                <p>{words.cartTitle}{item.title}</p>
+                                                <p>{words.cartQty}{item.qty}</p>
+                                                <p>{words.cartPrice} ${item.price}</p>
                                             </div>
-                                            <button onClick={() => props.removeCart(item)}>Remove</button>
+                                            <button onClick={() => props.removeCart(item)}>{words.reoveBtn}</button>
                                         </div>
                                     </div>
                                 ))
@@ -55,12 +55,12 @@ function Cart(props) {
                 </>
                 {
                     props.cartItems.length !== 0 && <div className="cart-footer">
-                        <div className="total">Total: {
+                        <div className="total">{words.total}: {
                             props.cartItems.reduce((acc, p) => {
                                 return acc + p.price
                             }, 0)
                         }</div>
-                        <button onClick={() => setShowForm(true)}>Select Products</button>
+                        <button onClick={() => setShowForm(true)}>{words.selectProduct}</button>
                     </div>
                 }
                 {/* Checkout Form */}

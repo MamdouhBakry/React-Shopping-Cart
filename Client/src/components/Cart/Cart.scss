@@ -42,3 +42,41 @@ button{
         font-size: 25px;
     }
 }
+
+.order-info{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    .alert-success{
+        background-color: green;
+        color:#fff;
+        padding: 10px;
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .close-icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+    table{
+        border: 1px solid #c0c0c0;
+        tr{
+            display:flex;
+            justify-content:space-between;
+            align-items: center;
+            border-bottom: 1px solid #c0c0c0;
+            td{
+                padding:10px;
+            }
+        }
+        tr:last-of-type{
+            border-bottom: 0;
+        }
+        
+    }
+}

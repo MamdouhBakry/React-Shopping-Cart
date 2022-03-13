@@ -5,6 +5,7 @@ import Bounce from 'react-reveal/Bounce';
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import OrderModal from './OrderModal';
 
 function Cart(props) {
     const [showForm, setShowForm] = useState(false);
@@ -29,36 +30,7 @@ function Cart(props) {
             <div className="cart-wrapper">
                 <div className="cart-title">{props.cartItems.length === 0 ? "Cart Is Empty" : `Ther is ${props.cartItems.length} In Cart`}</div>
                 {/* Modal */}
-                <Modal onRequestClose={closeModal} isOpen={order}>
-                    <div className="order-info">
-                        <span onClick={closeModal} className="close-icon">&times;</span>
-                        <p className="alert-success">order done success</p>
-                        <table>
-                            <tr>
-                                <td>Name: </td>
-                                <td>{order.name}</td>
-                            </tr>
-                            <tr>
-                                <td>Email: </td>
-                                <td>{order.email}</td>
-                            </tr>
-                            <tr>
-                                <td>Total: </td>
-                                <td>{props.cartItems.reduce((a, p) => {
-                                    return a + p.price;
-                                }, 0)}</td>
-                            </tr>
-                            <tr>
-                                <td>{props.cartItems.map(p => (
-                                    <div className="cart-data">
-                                        <p>Number of this product: {p.qty}</p>
-                                        <p>Title of product: {p.title}</p>
-                                    </div>
-                                ))}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </Modal>
+                <OrderModal order={order} closeModal={closeModal} cartItems={props.cartItems} />
                 <>
                     <Bounce bottom cascade>
                         <div className="cart-items">

@@ -4,23 +4,19 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const env = require('dotenv')
 const Product = require('./models/ProductModel');
-const router = require('./routes/routes');
+const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const runDb = require('./config/db');
 const app = express();
 
 app.use(cors())
 app.use(bodyParser.json());
-app.use("/", router);
+app.use("/", productRoutes);
+app.use("/", orderRoutes);
 
+// run database connection
 
-mongoose
-    .connect(
-        `mongodb+srv://root:admin@cluster0.ipjag.mongodb.net/shoping_cart?retryWrites=true&w=majority`
-    )
-    .then(() => {
-        console.log("Database Connected");
-    });
-
-
+runDb();
 
 const port = process.env.PORT || 5001;
 const start = async () => {

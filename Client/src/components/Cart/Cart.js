@@ -5,11 +5,11 @@ import Bounce from 'react-reveal/Bounce';
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import { createOrder, clearOrder } from "../../store/actions/order";
 import OrderModal from './OrderModal';
 
 function Cart(props) {
     const [showForm, setShowForm] = useState(false);
-    const [order, setOrder] = useState(false);
     const [value, setValue] = useState("");
     const submitOrder = (e) => {
         e.preventDefault();
@@ -17,20 +17,21 @@ function Cart(props) {
             name: value.name,
             email: value.email
         }
-        setOrder(order);
+        props.createOrder(order);
     }
     const handleChange = (e) => {
         setValue((prevstate) => ({ ...prevstate, [e.target.name]: e.target.value }))
     }
     const closeModal = () => {
-        setOrder(false);
+        setShowForm(false);
+        props.clearOrder();
     }
     return (
         <>
             <div className="cart-wrapper">
                 <div className="cart-title">{props.cartItems.length === 0 ? "Cart Is Empty" : `Ther is ${props.cartItems.length} In Cart`}</div>
                 {/* Modal */}
-                <OrderModal order={order} closeModal={closeModal} cartItems={props.cartItems} />
+                <OrderModal order={props.order} closeModal={closeModal} cartItems={props.cartItems} />
                 <>
                     <Bounce bottom cascade>
                         <div className="cart-items">
@@ -76,6 +77,7 @@ function Cart(props) {
 
 export default connect((state) => {
     return {
-        cartItems: state.cart.cartItems
+        cartItems: state.cart.cartItems,
+        order: state.order.order
     }
-}, { removeCart })(Cart)
+}, { removeCart, createOrder, clearOrder })(Cart)

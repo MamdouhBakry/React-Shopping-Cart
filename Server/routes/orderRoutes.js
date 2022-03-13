@@ -9,8 +9,10 @@ router.get("/api/orders", async (req, res) => {
 })
 
 router.post("/api/orders", async (req, res) => {
-    const order = await new Order(req.body).save();
-    res.send(order);
+    console.log(req.body);
+    const newOrder = new Order(req.body);
+    const saveOrder = await newOrder.save();
+    res.send(saveOrder);
 })
 router.delete("/api/orders/:id", async (req, res) => {
     const deletedOrder = await Order.findByIdAndDelete(req.params.id);

@@ -3,7 +3,7 @@ import "../../css/CheckoutForm/CheckoutForm.css";
 import Input from '../Input/Input';
 import Zoom from 'react-reveal/Zoom';
 import LightSpeed from 'react-reveal/LightSpeed';
-
+import { words } from "../../words";
 export default function CheckoutForm(props) {
     return (
         < >
@@ -16,19 +16,19 @@ export default function CheckoutForm(props) {
                         <Zoom right>
                             <form onSubmit={props.submitOrder}>
                                 <Input
-                                    label="Name"
+                                    label={words.name}
                                     type="text"
                                     onChange={props.handleChange}
                                     name="name"
                                 />
                                 <Input
-                                    label="Email"
+                                    label={words.email}
                                     type="email"
                                     onChange={props.handleChange}
                                     name="email"
                                 />
                                 <div>
-                                    <button type="submit">Checkout</button>
+                                    <button type="submit">{words.checkout}</button>
                                 </div>
                             </form>
                         </Zoom>

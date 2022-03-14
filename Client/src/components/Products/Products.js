@@ -9,7 +9,6 @@ import { addToCart } from "../../store/actions/cart";
 function Products(props) {
     const [product, setProduct] = useState("");
     const [ind, setInd] = useState(0);
-    console.log("products", props.products)
     const openModal = (product, index) => {
         setProduct(product);
         setInd(index);

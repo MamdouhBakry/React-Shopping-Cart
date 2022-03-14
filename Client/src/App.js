@@ -9,8 +9,8 @@ import img2 from "./Images/camera.jpg";
 import img3 from "./Images/laptop.jpg";
 import img4 from "./Images/shoes.jpg";
 import store from "./store/store";
-import Home from "./pages/Home";
-import Orders from "./pages/Orders";
+import Home from "./pages/Home/Home";
+import Orders from "./pages/Orders/Orders";
 import Navbar from "./components/Navbar/Navbar";
 
 

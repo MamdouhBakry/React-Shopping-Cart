@@ -1,7 +1,6 @@
 import { FETCH_PRODUCT, FILTER_SIZE, FILTER_SORT } from "../actions/types";
 
 export const productsReducer = (state = {}, action) => {
-    console.log("action.data", action.data);
     switch (action.type) {
         case FETCH_PRODUCT:
             return {

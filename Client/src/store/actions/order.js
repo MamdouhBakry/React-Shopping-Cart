@@ -4,7 +4,6 @@ export const createOrder = (order) => {
     return async (dispatch) => {
         try {
             const res = await axios.post("http://localhost:5001/api/orders", order);
-            console.log(res);
             if (res.status === 200) {
                 dispatch({
                     type: CREATE_ORDER,

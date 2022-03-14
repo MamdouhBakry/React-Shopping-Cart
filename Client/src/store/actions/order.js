@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER } from "./types.js"
+import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS } from "./types.js"
 export const createOrder = (order) => {
     return async (dispatch) => {
         try {
@@ -25,5 +25,23 @@ export const clearOrder = () => {
         dispatch({
             type: CLEAR_ORDER
         })
+    }
+}
+
+export const fetchOrders = () => {
+    return async (dispatch) => {
+        try {
+            const res = await axios.get("http://localhost:5001/api/orders");
+            if (res.status === 200) {
+                dispatch({
+                    type: FETCH_ORDERS,
+                    data: {
+                        orders: res.data
+                    }
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
